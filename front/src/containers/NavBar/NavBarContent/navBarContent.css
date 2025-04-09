@@ -1,0 +1,80 @@
+@import '../../../styles/colors.css';
+
+.navBarContent {
+    width: 100%;
+    height: 100%;
+    background-color: var(--colorE);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+/* logo y título */
+
+.navBarContent a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navBarContent a img {
+    width: 50px;
+    transition: .3s ease-in-out;
+}
+
+.navBarContent a img:hover {
+    transform: scale(1.1);
+}
+
+.navBarContent a h1 {
+    color: var(--colorJ);
+    transition: .3s ease-in-out;
+}
+
+.navBarContent a h1:hover {
+    color: var(--colorI);
+}
+
+/* Secciones */
+
+.navBarContentSect {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 3rem;
+    color: var(--colorC);
+    font-weight: 600;
+}
+
+.navBarContentSect a {
+    color: var(--colorJ);
+    transition: .3s ease-in-out;
+}
+
+.navBarContentSect a:hover {
+    color: var(--colorI);
+}
+
+@media (max-width: 767px) {
+    .navBarContentSect {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 374px) {
+
+    .navBarContent {
+        padding: 0 6px;
+
+    }
+
+    .navBarContent a h1 {
+        font-size: 1.4rem;
+    }
+
+    .navBarContentSect {
+        gap: 6px;
+    }
+}

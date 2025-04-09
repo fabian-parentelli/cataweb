@@ -1,0 +1,55 @@
+@import './colors.css';
+
+.btn {
+    min-width: 120px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+/* A */
+
+.btnA {
+    background-color: var(--colorA);
+    color: var(--colorI);
+    transition: .3s ease-in-out;
+}
+
+.btnA:hover {
+    background-color: var(--colorC);
+}
+
+/* B */
+
+.btnB {
+    background-color: var(--colorJ);
+    transition: .3s ease-in-out;
+    color: var(--colorE) !important;
+}
+
+.btnB:hover {
+    background-color: var(--colorI);
+}
+
+/* c */
+
+.btnC {
+    background-color: var(--colorF);
+    transition: .3s ease-in-out;
+    color: var(--colorE);
+}
+
+.btnC:hover {
+    background-color: #fada5b;
+}
+
+.btnD {
+    background-color: var(--colorE);
+    transition: .3s ease-in-out;
+    color: var(--colorJ);
+}
+
+.btnD:hover {
+    background-color: var(--colorC);
+}

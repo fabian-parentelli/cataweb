@@ -1,0 +1,26 @@
+.titlePanel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
+    padding: 0 24px 6px 0;
+    border-bottom: 1px solid rgb(201, 200, 200);
+    color: #003366;
+}
+
+.titlePanelSect {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.titlePanel a {
+    text-decoration: none;
+    color: #003366;
+    transition: .3s ease-in-out;
+}
+
+.titlePanel a:hover {
+    color: #1b3f63;
+}

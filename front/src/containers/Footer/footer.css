@@ -1,0 +1,6 @@
+@import '../../styles/colors.css';
+
+.footer {
+    min-height: 100vh;
+    background-color: var(--colorE);
+}

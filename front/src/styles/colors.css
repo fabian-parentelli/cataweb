@@ -1,0 +1,62 @@
+:root {
+    --colorA: #007acc;
+    --colorB: #66b3ff;
+    --colorC: #005599;
+    --colorD: #aaddff;
+    --colorE: #003366;
+    --colorF: #ffcc00;
+    --colorG: #ff9900;
+    --colorH: #ff6600;
+    --colorI: #ffff;
+    --colorJ: #EAEBEF;
+}
+
+.colorA {
+    color: var(--colorA);
+}
+
+.colorC {
+    color: var(--colorC);
+}
+
+.colorC {
+    color: var(--colorC);
+}
+
+.pblue {
+    color: var(--colorA);
+    font-size: 12px;
+    transition: .3s ease-in-out;
+}
+
+.pwhite {
+    color: var(--colorJ);
+    font-size: 12px;
+    transition: .3s ease-in-out;
+}
+
+.pgray {
+    color: gray;
+    font-size: 12px;
+    transition: .3s ease-in-out;
+}
+
+.pred {
+    color: rgb(252, 99, 99);
+    font-size: 12px;
+    transition: .3s ease-in-out;
+}
+
+/* lines */
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--colorA);
+}
+
+.lineVer {
+    width: 1px;
+    height: 100%;
+    background-color: var(--colorA);
+}

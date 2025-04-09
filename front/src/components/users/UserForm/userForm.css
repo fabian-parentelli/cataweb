@@ -1,0 +1,14 @@
+.userForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.userForm div {
+    display: flex;
+    flex-direction: column;
+}
+
+.userForm div input {
+    width: 100%;
+}

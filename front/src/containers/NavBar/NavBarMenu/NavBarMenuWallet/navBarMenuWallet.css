@@ -1,0 +1,22 @@
+@import '../../../../styles/colors.css';
+
+.navBarMenuWallet {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    border-top: 1px solid rgb(223, 223, 223);
+    border-bottom: 1px solid rgb(223, 223, 223);
+    padding: 12px 0;
+}
+
+.navBarMenuWallet h4 {
+    font-size: 12px;
+    background-color: #00bf636e;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    color: var(--colorW);
+    border-radius: 6px;
+    color: var(--colorPay);
+}

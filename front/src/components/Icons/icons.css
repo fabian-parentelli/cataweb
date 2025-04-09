@@ -1,0 +1,12 @@
+@import '../../styles/colors.css';
+
+.iconsHover {
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 3px;
+    border-radius: 6px;
+}
+
+.iconsHover:hover {
+    background-color: var(--colorA);
+}

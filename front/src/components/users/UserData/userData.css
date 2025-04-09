@@ -1,0 +1,47 @@
+@import '../../../styles/colors.css';
+
+.userData {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.userDataSect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.userDataInputs {
+    width: 300px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2), 0 0 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 4px;
+    min-height: 400px;
+}
+
+.userDataFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userDataFlex h5 {
+    color: var(--colorE);
+    font-size: 1.6rem;
+}
+
+@media (max-width: 767px) {
+
+    .userDataSect {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 374px) {
+
+    .userDataInputs {
+        width: 100%;
+    }
+}

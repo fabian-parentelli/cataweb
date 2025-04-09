@@ -1,0 +1,38 @@
+.carouselOne {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.carouselOne-slide {
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 200px;
+        height: 240px;
+        object-fit: contain;
+    }
+}
+
+.carouselOne-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-0%);
+    background: transparent;
+    border: none;
+    color: gray;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.carouselOne-button.prev {
+    left: 1px;
+}
+
+.carouselOne-button.next {
+    right: 1px;
+}

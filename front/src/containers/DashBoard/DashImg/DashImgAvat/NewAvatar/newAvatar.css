@@ -1,0 +1,27 @@
+.newAvatar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.newAvatarSect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.newAvatarCloud {
+    width: 250px;
+    height: 250px;
+}
+
+.newAvatarDiv {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.newAvatarDiv button {
+    width: 120px;
+}
