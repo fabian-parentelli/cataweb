@@ -1,9 +1,32 @@
 import './userData.css';
+import { useState } from 'react';
 import UserForm from '../UserForm/UserForm';
 import CloudFile from '../../tools/CloudFile/CloudFile';
-import CarouselOne from '../../utils/CarouselOne/CarouselOne';
+import UserDataAvatars from './UserDataAvatars/UserDataAvatars';
+import { useLoginContext } from '../../../context/LoginContext';
 
 const UserData = ({ user }) => {
+
+    const { update } = useLoginContext();
+
+    const [formdata, setFormdata] = useState(new FormData());
+    const [values, setValues] = useState(user);
+
+    const handleFileChange = (data) => setFormdata(data);
+
+    const handleClick = async () => {
+        formdata.set('data', JSON.stringify(values));
+
+
+        formdata.forEach((value, key) => {
+            console.log(key, value);
+            
+        })
+
+        // await update(formdata);
+
+        setFormdata(new FormData());
+    };
 
     return (
         <div className='userData'>
@@ -12,18 +35,31 @@ const UserData = ({ user }) => {
             <section className='userDataSect'>
 
                 <div className='userDataInputs'>
-                    <UserForm vew={{ door: true, password: false }} />
+                    <UserForm
+                        vew={{ door: true, password: false }}
+                        values={values} setValues={setValues}
+                    />
                 </div>
 
                 <div className='userDataInputs userDataFlex'>
                     <h5>Subir imagen</h5>
-                    <CloudFile contClass='cfRect' />
-                    <button className='btn btnD'>Actualizar</button>
+                    <CloudFile
+                        onChange={handleFileChange}
+                        contClass='cfRect' folderName='users'
+                        img={user.avatar?.length > 0 ? [{ url: user.avatar[0], type: 'image' }] : []}
+                    />
+                    <button className='btn btnD' onClick={handleClick}>
+                        Actualizar
+                    </button>
                 </div>
-                
+
                 <div className='userDataInputs userDataFlex'>
-                    <h5>Avatares</h5>
-                    <CarouselOne />
+
+                    <UserDataAvatars />
+                </div>
+
+                <div className='userDataInputs userDataFlex'>
+                    <h5>Imagenes Historicas</h5>
 
                 </div>
 

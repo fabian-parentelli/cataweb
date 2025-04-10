@@ -11,5 +11,25 @@ export default class ImageRepository {
         const result = await imageManager.getAvatars(query, page);
         return result;
     };
+   
+    getAllAvatars = async (query) => {
+        const result = await imageManager.getAllAvatars(query);
+        return result;
+    };
+    
+    updAvatarAct = async (id) => {
+        const result = await imageManager.updAvatarAct(id);
+        return result;
+    };
+    
+    getAvatarById = async (id) => {
+        const result = await imageManager.getAvatarById(id);
+        return result;
+    };
+    
+    deleteAvatar = async (id) => {
+        const result = await imageManager.deleteAvatar(id);
+        return result;
+    };
     
 };

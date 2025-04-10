@@ -9,5 +9,6 @@ export default class UserRouter extends Router {
         this.post('/register', ['PUBLIC'], passportEnum.NOTHING, userController.register);
         this.post('/login', ['PUBLIC'], passportEnum.NOTHING, userController.login);
         this.get('/current', ['PUBLIC'], passportEnum.JWT, userController.current);
+        this.put('/', ['USER', 'ADMIN', 'SELLER', 'MASTER'], passportEnum.JWT, multipleUploader, uploadToCloudinary, userController.update);
     };
-}
+};

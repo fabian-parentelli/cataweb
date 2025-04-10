@@ -8,5 +8,7 @@ export default class ImageRouter extends Router {
     init() {
         this.post('/avatar', ['MASTER'], passportEnum.JWT, multipleUploader, uploadToCloudinary, imageController.postAvatar);
         this.get('/avatar', ['PUBLIC'], passportEnum.NOTHING, imageController.getAvatars);
+        this.put('/avatar/:id', ['MASTER'], passportEnum.JWT, imageController.updAvatarAct);
+        this.delete('/avatar', ['MASTER'], passportEnum.JWT, imageController.deleteAvatar);
     };
-}
+};

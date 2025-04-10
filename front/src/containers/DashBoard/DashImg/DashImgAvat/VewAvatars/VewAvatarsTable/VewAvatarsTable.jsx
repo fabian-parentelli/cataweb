@@ -1,12 +1,14 @@
 import './vewAvatarsTable.css';
 import { useState } from 'react';
 import Icons from '../../../../../../components/Icons/Icons';
+import Modal from '../../../../../../components/tools/Modal/Modal';
 import Tooltip from '../../../../../../components/tools/Tooltip/Tooltip';
 import ImgHover from '../../../../../../components/tools/ImgHover/ImgHover';
+import PassInput from '../../../../../../components/tools/PassInput/PassInput';
 
-const VewAvatarsTable = ({ avatars }) => {
+const VewAvatarsTable = ({ avatars, handleActive, handleDelete }) => {
 
-    const [modal, setModal] = useState({ open: false, data: null, type: null });
+    const [modal, setModal] = useState({ open: false, data: null });
 
     return (
         <div className='vewAvatarsTable'>
@@ -27,19 +29,19 @@ const VewAvatarsTable = ({ avatars }) => {
 
                             <td
                                 className='tdBack'
-                                onClick={() => setModal({ open: true, data: avat._id, type: 'active' })}
+                                onClick={() => handleActive(avat._id)}
                             >
                                 <Tooltip text={avat.active ? 'Desactivar' : 'Activar'} position='left'>
                                     <Icons type='userCircle' color={avat.active ? '#009929' : 'red'} />
                                 </Tooltip>
                             </td>
-                            
+
                             <td
                                 className='tdBack'
-                                onClick={() => setModal({ open: true, data: avat._id, type: 'delete' })}
+                                onClick={() => setModal({ open: true, data: avat._id })}
                             >
                                 <Tooltip text='Eliminar' position='left'>
-                                    <Icons type='delete'  />
+                                    <Icons type='delete' />
                                 </Tooltip>
                             </td>
 
@@ -48,7 +50,14 @@ const VewAvatarsTable = ({ avatars }) => {
                 </tbody>
             </table>
 
-
+            <Modal open={modal.open} onClose={() => setModal({ open: false, data: null })}>
+                <PassInput
+                    text='Eliminar'
+                    passFuntions={handleDelete}
+                    setModal={setModal}
+                    data={modal.data}
+                />
+            </Modal>
         </div>
     );
 };

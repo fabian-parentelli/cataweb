@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 import { userCurrentApi } from "../helpers/user/userCurrent.api.js";
 import { userRegisterApi } from "../helpers/user/userRegister.api.js";
 import { userLoginApi } from "../helpers/user/userLogin.api.js";
-// import { userUpdateApi } from "../helpers/user/userUpdate.api.js";
+import { userUpdateApi } from "../helpers/user/userUpdate.api.js";
 
 const LoginContext = createContext();
 export const useLoginContext = () => useContext(LoginContext);
@@ -16,8 +16,6 @@ const LoginProvider = ({ children }) => {
     const register = async (user) => {
         setLoading(true);
         const response = await userRegisterApi(user);
-        console.log(response);
-        
         if (response.status === 'success') {
             localStorage.setItem('token', response.accesToken);
             await current();

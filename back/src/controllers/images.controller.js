@@ -23,4 +23,24 @@ const getAvatars = async (req, res) => {
     };
 };
 
-export { postAvatar, getAvatars };
+const updAvatarAct = async (req, res) => {
+    try {
+        const result = await imageService.updAvatarAct({ ...req.params });
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+        if (error instanceof ImageNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+const deleteAvatar = async (req, res) => {
+    try {
+        const result = await imageService.deleteAvatar({ ...req.body }, { ...req.user });
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+        if (error instanceof ImageNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+export { postAvatar, getAvatars, updAvatarAct, deleteAvatar };

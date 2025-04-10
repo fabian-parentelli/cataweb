@@ -1,11 +1,13 @@
 import './cloudFile.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
-const CloudFile = ({ onChange, folderName, contClass, id }) => {
+const CloudFile = ({ onChange, folderName, contClass, img = [] }) => {
 
     const fileInputRef = useRef(null);
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState(img);
     const [files, setFiles] = useState([]);
+
+    useEffect(() => { setImages(img ? img : []) }, []);
 
     const handleImgChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
@@ -21,13 +23,10 @@ const CloudFile = ({ onChange, folderName, contClass, id }) => {
             }
             return null;
         }).filter(Boolean);
-
         setImages(filePreviews);
-
         const formData = new FormData();
         newFiles.forEach(file => formData.append("files", file));
         formData.append("folderName", folderName);
-        if (id) formData.append("pid", id);
         onChange(formData);
     };
 

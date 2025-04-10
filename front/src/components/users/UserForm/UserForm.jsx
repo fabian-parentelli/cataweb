@@ -88,8 +88,8 @@ const UserForm = ({ vew = {}, values, setValues, dataRequired = {} }) => {
                         <input
                             type="text" name='province'
                             placeholder='Provincia' required={isRequired.province}
-                            onChange={handleChange}
-                            value={values?.province || ''}
+                            onChange={handleLocation}
+                            value={values?.location?.province || ''}
                         />
                     </div>
 

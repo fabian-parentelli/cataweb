@@ -17,4 +17,13 @@ export default class User {
     getById = async (id) => {
         return await userModel.findById(id).lean();
     };
+
+    getForRole = async (_id) => {
+        return await userModel.findOne({ _id }, { password: 1, role: 1 });
+    };
+
+    update = async (user) => {
+        return await userModel.findByIdAndUpdate(user._id, user, { lean: true, new: true });
+    };
+
 };

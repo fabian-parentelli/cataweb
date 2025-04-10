@@ -31,4 +31,15 @@ const current = async (req, res) => {
     };
 };
 
-export { register, login, current };
+const update = async (req, res) => {
+    const imagesUrl = req.cloudinaryUrls;
+    try {
+        const result = await userService.update(imagesUrl, { ...req.body }, { ...req.user });
+        if (result) return res.sendSuccess(result);
+    } catch (error) {
+        if (error instanceof UserNotFound) return res.sendClientError(error.message);
+        res.sendServerError(error.message);
+    };
+};
+
+export { register, login, current, update };

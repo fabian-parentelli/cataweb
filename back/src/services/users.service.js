@@ -7,6 +7,7 @@ import { generateToken, passwordToken } from '../utils/jwt.utils.js';
 import { v4 as uuidv4 } from 'uuid';
 import config from '../config/dotEnv.config.js';
 import { recoverPassword_HTML } from '../utils/html/recoverPassword.utils.js';
+import { userOrAdmin } from "../utils/services/users.utils.js";
 
 const register = async (user) => {
     const isUser = await userRepository.exists(user.email);
@@ -45,4 +46,15 @@ const current = async ({ user }) => {
     return userDb;
 };
 
-export { register, login, current };
+const update = async (imagesUrl, body, { user }) => {
+    const bodyData = JSON.parse(body.data);
+    const userDb = await userRepository.getById(bodyData._id);
+    if (!userDb) throw new UserNotFound('Error al obtener el usario');
+    const newUser = { ...userDb, ...bodyData };
+    if (imagesUrl && imagesUrl.length > 0) newUser.avatar.unshift(imagesUrl[0]);
+    const result = await userRepository.update(newUser);
+    if (!result) throw new UserNotFound('Error al guardar los datos');
+    return userOrAdmin(result, 'putDataUser', user, userDb);
+};
+
+export { register, login, current, update };

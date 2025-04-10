@@ -8,6 +8,7 @@ const getAvatarsApi = async (obj) => {
     if (obj.active !== undefined) urlData += `active=${obj.active}&`;
     if (obj.name) urlData += `name=${obj.name}&`;  
     if (obj.id) urlData += `id=${obj.id}&`;  
+    if (obj.selected !== undefined) urlData += `selected=${obj.selected}&`;
 
     if (urlData.endsWith('&')) urlData = urlData.slice(0, -1);
 

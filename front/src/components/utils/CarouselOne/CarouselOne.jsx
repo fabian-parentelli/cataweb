@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const CarouselOne = ({ images = [] }) => {
 
-    const activeImages = images.filter(image => image.actives);
+    const activeImages = images.filter(image => image.active);
 
     if (activeImages.length === 0) {
         return <p>No hay imágenes activas para mostrar.</p>;
@@ -26,7 +26,7 @@ const CarouselOne = ({ images = [] }) => {
     return (
         <div className="carouselOne">
             <div className="carouselOne-slide">
-                <img src={activeImages[currentIndex].imgUrl} alt="carouselManuel" />
+                <img src={activeImages[currentIndex].url} alt="carouselManuel" />
             </div>
             <button className="carouselOne-button prev" onClick={prevSlide}>
                 {'<'}
